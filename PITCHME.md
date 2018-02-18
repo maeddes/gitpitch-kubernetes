@@ -88,6 +88,26 @@ users:
 
 +++
 
+change context
+```bash
+matthiashaeussler@macbookmhs ~> kubectl config use-context docker-for-desktop
+Switched to context "docker-for-desktop".
+```
+
++++
+
+switch context
+```bash
+matthiashaeussler@macbookmhs ~> kubectl get nodes
+NAME                 STATUS    ROLES     AGE       VERSION
+docker-for-desktop   Ready     master    2d        v1.9.2
+matthiashaeussler@macbookmhs ~> kubectl config use-context minikube
+Switched to context "minikube".
+matthiashaeussler@macbookmhs ~> kubectl get nodes
+NAME       STATUS    ROLES     AGE       VERSION
+minikube   Ready     <none>    61d       v1.8.0
+```
+
 ---
 
 # Minikube
@@ -106,3 +126,50 @@ minikube: Stopped
 cluster:
 kubectl:
 ```
+
++++
+
+version
+```bash
+matthiashaeussler@macbookmhs ~> minikube  version
+minikube version: v0.24.1
+```
+
++++
+
+start
+```bash
+matthiashaeussler@macbookmhs ~> minikube start
+Starting local Kubernetes v1.8.0 cluster...
+Starting VM...
+Getting VM IP address...
+Moving files into cluster...
+Setting up certs...
+Connecting to cluster...
+Setting up kubeconfig...
+Starting cluster components...
+Kubectl is now configured to use the cluster.
+Loading cached images from config file.
+```
+
++++
+
+new status
+```bash
+matthiashaeussler@macbookmhs ~> minikube status
+minikube: Running
+cluster: Running
+kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.100
+```
+
++++
+
+new context
+```bash
+matthiashaeussler@macbookmhs ~> kubectl config get-contexts                                                            Sun Feb 18 19:59:08 2018
+CURRENT   NAME                 CLUSTER                      AUTHINFO             NAMESPACE
+          docker-for-desktop   docker-for-desktop-cluster   docker-for-desktop
+*         minikube             minikube                     minikube
+```
+
++++
