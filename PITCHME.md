@@ -173,3 +173,10 @@ CURRENT   NAME                 CLUSTER                      AUTHINFO            
 ```
 
 +++
+
+stop
+```bash
+matthiashaeussler@macbookmhs ~> minikube stop
+Stopping local Kubernetes cluster...
+Machine stopped.
+```
