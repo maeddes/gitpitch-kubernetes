@@ -180,3 +180,47 @@ matthiashaeussler@macbookmhs ~> minikube stop
 Stopping local Kubernetes cluster...
 Machine stopped.
 ```
+
+---
+
+#Dashboard
+
++++
+
+install
+```bash
+matthiashaeussler@macbookmhs ~/g/m/kubernetes>kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+
+secret "kubernetes-dashboard-certs" created
+serviceaccount "kubernetes-dashboard" created
+role "kubernetes-dashboard-minimal" created
+rolebinding "kubernetes-dashboard-minimal" created
+deployment "kubernetes-dashboard" created
+service "kubernetes-dashboard" created
+``` 
++++
+
+create proxy
+```bash
+matthiashaeussler@macbookmhs ~/g/m/kubernetes> kubectl proxy --port=8765
+Starting to serve on 127.0.0.1:8765
+
+matthiashaeussler@macbookmhs ~/g/m/kubernetes> curl localhost:8765
+```
+
++++
+
+API enpdpoints
+```json
+{
+  "paths": [
+    "/api",
+    "/api/v1",
+    "/apis",
+    "/apis/",
+    "/apis/admissionregistration.k8s.io",
+    "/apis/admissionregistration.k8s.io/v1beta1"
+}
+```
+
++++
