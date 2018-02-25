@@ -133,6 +133,30 @@ Events:
 
 +++
 
+```bash
+matthiashaeussler@macbookmhs ~/g/C/ToDoCommandService> kubectl get daemonSets --namespace kube-system kube-proxy
+NAME         DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+kube-proxy   1         1         1         1            1           <none>          9d
+```
+
++++
+
+```bash
+matthiashaeussler@macbookmhs ~/g/C/ToDoCommandService> kubectl get deployments --namespace kube-system
+NAME                   DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+kube-dns               1         1         1            1           9d
+kubernetes-dashboard   1         1         1            1           4d
+```
+
++++
+
+```bash
+matthiashaeussler@macbookmhs ~/g/C/ToDoCommandService> kubectl get services --namespace kube-system
+NAME                   TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)         AGE
+kube-dns               ClusterIP   10.96.0.10     <none>        53/UDP,53/TCP   9d
+kubernetes-dashboard   ClusterIP   10.110.80.28   <none>        443/TCP         4d
+```
+
 ---
 
 # CLUSTERS
