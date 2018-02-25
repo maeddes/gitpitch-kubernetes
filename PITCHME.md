@@ -33,6 +33,105 @@ etcd-0               Healthy   {"health": "true"}
 
 +++
 
+```bash
+matthiashaeussler@macbookmhs ~/g/C/ToDoCommandService> kubectl get nodes
+NAME                 STATUS    ROLES     AGE       VERSION
+docker-for-desktop   Ready     master    9d        v1.9.2
+``` 
+
++++
+
+```bash
+matthiashaeussler@macbookmhs ~/g/C/ToDoCommandService> kubectl describe nodes docker-for-desktop
+Name:               docker-for-desktop
+Roles:              master
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/hostname=docker-for-desktop
+                    node-role.kubernetes.io/master=
+Annotations:        node.alpha.kubernetes.io/ttl=0
+                    volumes.kubernetes.io/controller-managed-attach-detach=true
+Taints:             <none>
+CreationTimestamp:  Fri, 16 Feb 2018 11:22:40 +0100
+
+
+
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  OutOfDisk        False   Sun, 25 Feb 2018 21:23:35 +0100   Fri, 16 Feb 2018 11:22:36 +0100   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure   False   Sun, 25 Feb 2018 21:23:35 +0100   Tue, 20 Feb 2018 19:18:42 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Sun, 25 Feb 2018 21:23:35 +0100   Tue, 20 Feb 2018 19:18:42 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  Ready            True    Sun, 25 Feb 2018 21:23:35 +0100   Tue, 20 Feb 2018 19:18:42 +0100   KubeletReady                 kubelet is posting ready status
+
+
+
+Addresses:
+  InternalIP:  192.168.65.3
+  Hostname:    docker-for-desktop
+Capacity:
+ cpu:     4
+ memory:  6100260Ki
+ pods:    110
+Allocatable:
+ cpu:     4
+ memory:  5997860Ki
+ pods:    110
+System Info:
+ Machine ID:
+ System UUID:                F36441E9-0000-0000-AC52-A0BD6FC8BE2F
+ Boot ID:                    72ccfec3-5ff8-4485-be74-a0d8b22cbad3
+ Kernel Version:             4.9.75-linuxkit-aufs
+ OS Image:                   Docker for Mac
+ Operating System:           linux
+ Architecture:               amd64
+ Container Runtime Version:  docker://18.2.0
+ Kubelet Version:            v1.9.2
+ Kube-Proxy Version:         v1.9.2
+ExternalID:                  docker-for-desktop
+
+
+
+Non-terminated Pods:         (15 in total)
+  Namespace                  Name                                          CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ---------                  ----                                          ------------  ----------  ---------------  -------------
+  docker                     compose-54975bf945-79w8d                      0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  docker                     compose-api-6b9ddf57b6-xt79n                  0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  kube-system                etcd-docker-for-desktop                       0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-apiserver-docker-for-desktop             250m (6%)     0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-controller-manager-docker-for-desktop    200m (5%)     0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-dns-6f4fd4bdf-65kkk                      260m (6%)     0 (0%)      110Mi (1%)       170Mi (2%)
+  kube-system                kube-proxy-b2tcg                              0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-scheduler-docker-for-desktop             100m (2%)     0 (0%)      0 (0%)           0 (0%)
+  kube-system                kubernetes-dashboard-5bd6f767c7-zc76v         0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  todo-cn-app                todo-db-79fff98d5-v26pq                       0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  todo-cn-app                todo-messaging-6477f9bd79-2cmsb               0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  todo-cn-app                todocommandservice-54cbc76d6-vljgv            0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  todo-cn-app                todoqueryservice-545dc94dcb-wbqrp             0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  todo-cn-app                todoserviceregistry-5b8766c57f-h9nm8          0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  todo-cn-app                todouiservice-67c888ccb-qv785                 0 (0%)        0 (0%)      0 (0%)           0 (0%)
+
+
+
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ------------  ----------  ---------------  -------------
+  810m (20%)    0 (0%)      110Mi (1%)       170Mi (2%)
+
+
+
+Events:
+  Type    Reason                   Age                From                         Message
+  ----    ------                   ----               ----                         -------
+  Normal  Starting                 11h                kubelet, docker-for-desktop  Starting kubelet.
+  Normal  NodeAllocatableEnforced  11h                kubelet, docker-for-desktop  Updated Node Allocatable limit across pods
+  Normal  NodeHasSufficientDisk    11h (x8 over 11h)  kubelet, docker-for-desktop  Node docker-for-desktop status is now: NodeHasSufficientDisk
+  Normal  NodeHasSufficientMemory  11h (x8 over 11h)  kubelet, docker-for-desktop  Node docker-for-desktop status is now: NodeHasSufficientMemory
+  Normal  NodeHasNoDiskPressure    11h (x7 over 11h)  kubelet, docker-for-desktop  Node docker-for-desktop status is now: NodeHasNoDiskPressure
+``` 
+
++++
 
 ---
 
