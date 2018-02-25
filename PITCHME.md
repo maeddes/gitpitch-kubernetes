@@ -21,6 +21,19 @@ Client Version: version.Info{Major:"1", Minor:"9", GitVersion:"v1.9.2", GitCommi
 Server Version: version.Info{Major:"1", Minor:"9", GitVersion:"v1.9.2", GitCommit:"5fa2db2bd46ac79e5e00a4e6ed24191080aa463b", GitTreeState:"clean", BuildDate:"2018-01-18T09:42:01Z", GoVersion:"go1.9.2", Compiler:"gc", Platform:"linux/amd64"}
 ``` 
 
++++
+
+```bash
+matthiashaeussler@macbookmhs ~/g/C/ToDoCommandService> kubectl get componentstatuses
+NAME                 STATUS    MESSAGE              ERROR
+controller-manager   Healthy   ok
+scheduler            Healthy   ok
+etcd-0               Healthy   {"health": "true"}
+``` 
+
++++
+
+
 ---
 
 # CLUSTERS
